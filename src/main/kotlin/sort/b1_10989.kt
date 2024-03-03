@@ -1,16 +1,16 @@
 package sort
 
-import java.io.BufferedReader
-import java.io.InputStreamReader
-
-private val br = BufferedReader(InputStreamReader(System.`in`))
-private val graph = mutableListOf<Int>()
-private fun main(){
+fun main() {
+    val br = System.`in`.bufferedReader()
+    val bw = System.out.bufferedWriter()
     val n = br.readLine().toInt()
-    repeat(n){
-        val m =br.readLine().toInt()
-        graph.add(m)
+    val arr = IntArray(10001)
+    repeat(n) {
+        arr[br.readLine().toInt()]++
     }
-    graph.sort()
-    print(graph.toString())
+    br.close()
+    repeat(arr.size) {
+        bw.write("${it}\n".repeat(arr[it]))
+    }
+    bw.close()
 }
